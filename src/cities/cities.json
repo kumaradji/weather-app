@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "country": "RU",
+    "name": "Moscow",
+    "lat": "55.75222",
+    "lng": "37.61556"
+  },
+  {
+    "id": "2",
+    "country": "RU",
+    "name": "Saint Petersburg",
+    "lat": "59.93863",
+    "lng": "30.31413"
+  },
+  {
+    "id": "3",
+    "country": "RU",
+    "name": "Nizhniy Novgorod",
+    "lat": "56.32867",
+    "lng": "44.00205"
+  },
+  {
+    "id": "4",
+    "country": "RU",
+    "name": "Novosibirsk",
+    "lat": "55.0415",
+    "lng": "82.9346"
+  }
+]
