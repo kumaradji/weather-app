@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
-import CitySelector from './components/CitySelector.jsx';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import CityInput from './components/CityInput.jsx';
+import Header from './components/Header.jsx';
 import WeatherDisplay from './components/WeatherDisplay.jsx';
 import { fetchWeatherData } from './WeatherService';
 
@@ -42,20 +43,18 @@ const App = () => {
   return (
     <Router>
       <div>
+        <Header />
         <h1>Погода</h1>
-        <Route
-          path="/"
-          exact
-          render={() => (
-            <CitySelector onSelectCity={handleCitySelect} />
-          )}
-        />
-        <Route
-          path="/weather"
-          render={() => (
-            <WeatherDisplay weatherData={weatherData} />
-          )}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={<CityInput onSelectCity={handleCitySelect} />}
+          />
+          <Route
+            path="/weather"
+            element={<WeatherDisplay weatherData={weatherData} />}
+          />
+        </Routes>
       </div>
     </Router>
   );

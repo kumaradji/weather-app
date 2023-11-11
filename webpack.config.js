@@ -36,5 +36,10 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx'], // Добавьте '.jsx' в расширения
-  }
+  },
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8080,
+  },
 }

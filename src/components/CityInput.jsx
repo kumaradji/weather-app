@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import JsonFile from '../cities/cities.json';
+import "../styles/CityInput.css";
 
-const CitySelector = ({ onSelectCity }) => {
+const CityInput = ({ onSelectCity }) => {
   const [city, setCity] = useState('');
 
   const handleInputChange = (e) => {
@@ -35,4 +36,4 @@ const CitySelector = ({ onSelectCity }) => {
   );
 };
 
-export default CitySelector;
+export default CityInput;
