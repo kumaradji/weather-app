@@ -1,6 +1,7 @@
+// CityInput.jsx
 import React, { useState } from 'react';
 import JsonFile from '../cities/cities.json';
-import "../styles/CityInput.css";
+import '../styles/CityInput.css';
 
 const CityInput = ({ onSelectCity }) => {
   const [city, setCity] = useState('');
@@ -25,12 +26,17 @@ const CityInput = ({ onSelectCity }) => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Введите город"
+      <select
         value={city}
         onChange={handleInputChange}
-      />
+      >
+        <option value="" disabled>Выберите город</option>
+        {JsonFile.map((cityData) => (
+          <option key={cityData.id} value={cityData.name.toLowerCase()}>
+            {cityData.name}
+          </option>
+        ))}
+      </select>
       <button onClick={handleSelectCity}>Выбрать город</button>
     </div>
   );

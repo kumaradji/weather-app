@@ -1,5 +1,5 @@
 import React from 'react';
-import { YMaps, Map } from "@pbe/react-yandex-maps";
+import { YMaps, Map } from "react-yandex-maps";
 import { usePosition } from "…./usePosition";
 
 const YandexMap = () => {

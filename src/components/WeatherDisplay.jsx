@@ -1,13 +1,17 @@
+// WeatherDisplay.jsx
 import React from 'react';
-import Weather from "./Weather";
+import WeatherData from './Weather';
 
 const WeatherDisplay = ({ name, weatherData }) => {
-  // Реализуйте отображение данных о погоде
   return (
-    <>
+    <div>
       <h1>{name}</h1>
-      {weatherData.map(weather => <Weather key={weather.main.dt} weather={weather}/>)}
-    </>
+      <div>
+        {weatherData.map(weather => (
+          <WeatherData key={weather.main.dt} weatherData={weather} />
+        ))}
+      </div>
+    </div>
   );
 };
 

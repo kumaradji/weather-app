@@ -26,5 +26,89 @@
     "name": "Novosibirsk",
     "lat": "55.0415",
     "lng": "82.9346"
+  },
+  {
+    "id": "5",
+    "country": "RU",
+    "name": "Yekaterinburg",
+    "lat": "56.83852",
+    "lng": "60.60549"
+  },
+  {
+    "id": "6",
+    "country": "RU",
+    "name": "Kazan",
+    "lat": "55.78874",
+    "lng": "49.12214"
+  },
+  {
+    "id": "7",
+    "country": "RU",
+    "name": "Chelyabinsk",
+    "lat": "55.15402",
+    "lng": "61.42915"
+  },
+  {
+    "id": "8",
+    "country": "RU",
+    "name": "Omsk",
+    "lat": "54.99244",
+    "lng": "73.36859"
+  },
+  {
+    "id": "9",
+    "country": "RU",
+    "name": "Samara",
+    "lat": "53.20007",
+    "lng": "50.15025"
+  },
+  {
+    "id": "10",
+    "country": "RU",
+    "name": "Rostov-on-Don",
+    "lat": "47.23135",
+    "lng": "39.72328"
+  },
+  {
+    "id": "11",
+    "country": "RU",
+    "name": "Ufa",
+    "lat": "54.74306",
+    "lng": "55.96779"
+  },
+  {
+    "id": "12",
+    "country": "RU",
+    "name": "Krasnoyarsk",
+    "lat": "56.00972",
+    "lng": "92.79167"
+  },
+  {
+    "id": "13",
+    "country": "RU",
+    "name": "Perm",
+    "lat": "58.01741",
+    "lng": "56.28552"
+  },
+  {
+    "id": "14",
+    "country": "RU",
+    "name": "Volgograd",
+    "lat": "48.71939",
+    "lng": "44.50183"
+  },
+  {
+    "id": "15",
+    "country": "RU",
+    "name": "Voronezh",
+    "lat": "51.67204",
+    "lng": "39.1843"
+  },
+  {
+    "id": "16",
+    "country": "RU",
+    "name": "Krasnodar",
+    "lat": "45.03279",
+    "lng": "38.97694"
   }
 ]
