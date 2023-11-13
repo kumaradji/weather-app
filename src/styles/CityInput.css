@@ -1,5 +1,5 @@
 .form-select {
     display: block;
-    width: 35%;
+    width: clamp(100px, 40%, 400px);
     color: #3F92D2;
 }

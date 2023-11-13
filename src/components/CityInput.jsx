@@ -13,7 +13,7 @@ const CityInput = ({ onSelectCity }) => {
   const handleSelectCity = () => {
     if (city.trim() !== '') {
       const selectedCity = JsonFile.find((cityData) => {
-        return cityData.name.toLowerCase().includes(city);
+        return cityData.name.toLowerCase() === city.toLowerCase();
       });
 
       if (selectedCity) {
