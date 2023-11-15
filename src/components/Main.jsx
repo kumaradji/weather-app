@@ -1,33 +1,75 @@
 // Main.jsx
-import React, { useState } from 'react';
-import axios from 'axios';
-import WeatherDisplay from './WeatherDisplay';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CityInput from './CityInput';
+import Header from './Header';
+import { fetchWeatherData, getCityCoordinates } from './WeatherService';
+import WeatherData from './WeatherData';
+import WeatherDisplay from "./WeatherDisplay";
 
-function Main() {
-  const [name, setName] = useState('Moscow');
-  const [weathers, setWeathers] = useState([]);
+const Main = () => {
+  const [selectedCity, setSelectedCity] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
 
-  const handleNameChange = (name) => {
-    setName(name);
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${name},ru&APPID=fe4c586fd2c32a2e3e13d3ad079f4ea1&units=metric`;
+  useEffect(() => {
+    console.log('Main Rendered');
+  });
 
-    axios.get(weatherUrl).then((res) => {
-      setWeathers(res.data.list);
-    });
+  useEffect(() => {
+    console.log('Main Mounted');
+    return () => {
+      console.log('Main Unmounted');
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log('Main Updated', { selectedCity, weatherData });
+  }, [selectedCity, weatherData]);
+
+  const handleCitySelect = async (city) => {
+    try {
+      const apiKey = 'ffd35bef4b2502a86a950620325c3764';
+      const cityCoordinates = await getCityCoordinates(city.name, apiKey);
+
+      if (cityCoordinates) {
+        const { lat, lon } = cityCoordinates;
+        const data = await fetchWeatherData(lat, lon);
+        setWeatherData(data);
+      }
+      setSelectedCity(city);
+    } catch (error) {
+      console.error('Error selecting city:', error);
+    }
   };
 
   return (
-    <div>
-      <h1>Weather App</h1>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button onClick={() => handleNameChange(name)}>Get Weather</button>
-      <WeatherDisplay name={name} weatherData={weathers} />
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <h1>Погода</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={<CityInput onSelectCity={handleCitySelect} />}
+          />
+          <Route
+            path="/weather"
+            element={
+              <>
+                <WeatherDisplay name={selectedCity.name} weatherData={weatherData} />
+                {weatherData && (
+                  <div>
+                    <h2>Информация о городе {selectedCity.name}</h2>
+                    <WeatherData weatherData={weatherData.list[0]} />
+                  </div>
+                )}
+              </>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default Main;

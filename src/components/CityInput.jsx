@@ -1,7 +1,6 @@
 // CityInput.jsx
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import JsonFile from '../cities/cities.json';
-import '../styles/CityInput.css';
 
 const CityInput = ({ onSelectCity }) => {
   const [city, setCity] = useState('');
@@ -17,10 +16,13 @@ const CityInput = ({ onSelectCity }) => {
       });
 
       if (selectedCity) {
+        console.log('Selected City:', selectedCity);
         onSelectCity(selectedCity);
       } else {
         alert('Город не найден. Выберите город из списка.');
       }
+    } else {
+      alert('Выберите город перед нажатием кнопки.');
     }
   };
 

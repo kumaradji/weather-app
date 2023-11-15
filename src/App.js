@@ -1,10 +1,10 @@
 // App.js
 import React from 'react';
-import WeatherLoader from './components/WeatherLoader';
+import Main from './components/Main';
 
 const App = () => {
   return (
-    <WeatherLoader />
+    <Main />
   );
 };
 
