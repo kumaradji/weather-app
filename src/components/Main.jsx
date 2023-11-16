@@ -9,18 +9,7 @@ import WeatherDisplay from "./WeatherDisplay";
 
 const Main = () => {
   const [selectedCity, setSelectedCity] = useState('');
-  const [weatherData, setWeatherData] = useState(null);
-
-  useEffect(() => {
-    console.log('Main Rendered');
-  });
-
-  useEffect(() => {
-    console.log('Main Mounted');
-    return () => {
-      console.log('Main Unmounted');
-    };
-  }, []);
+  const [weatherData, setWeatherData] = useState([]);
 
   useEffect(() => {
     console.log('Main Updated', { selectedCity, weatherData });
@@ -45,6 +34,10 @@ const Main = () => {
   return (
     <Router>
       <div>
+
+        {console.log('Selected city in Main', selectedCity)}
+        {console.log('Weather data in Main', weatherData)}
+
         <Header />
         <h1>Погода</h1>
         <Routes>
@@ -56,13 +49,19 @@ const Main = () => {
             path="/weather"
             element={
               <>
-                <WeatherDisplay name={selectedCity.name} weatherData={weatherData} />
-                {weatherData && (
-                  <div>
-                    <h2>Информация о городе {selectedCity.name}</h2>
-                    <WeatherData weatherData={weatherData.list[0]} />
-                  </div>
-                )}
+                {weatherData &&
+                  <>
+                    <WeatherDisplay
+                      name={selectedCity.name}
+                      weatherData={weatherData}
+                    />
+                    {
+                      weatherData.list &&
+                      <WeatherData weatherData={weatherData.list[0]} />
+                    }
+                    />
+                  </>
+                }
               </>
             }
           />

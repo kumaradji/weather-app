@@ -2,8 +2,14 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 
+console.log('WeatherData imported');
+console.log('WeatherData rendered');
+
 function WeatherData(props) {
   const { dt_txt, main } = props.weatherData;
+
+  console.log('Props in WeatherData:', props);
+
 
   return (
     <Table striped bordered hover>
