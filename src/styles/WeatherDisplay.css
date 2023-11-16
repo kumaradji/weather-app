@@ -1,0 +1,12 @@
+.weather-display {
+    font-family: Arial, sans-serif;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.weather-display-error {
+    color: red;
+    font-weight: bold;
+}

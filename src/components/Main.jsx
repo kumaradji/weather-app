@@ -22,24 +22,29 @@ const Main = () => {
 
       if (cityCoordinates) {
         const { lat, lon } = cityCoordinates;
+        setSelectedCity(city); // Обновить selectedCity сначала
         const data = await fetchWeatherData(lat, lon);
         setWeatherData(data);
       }
-      setSelectedCity(city);
     } catch (error) {
       console.error('Error selecting city:', error);
     }
   };
 
+
   return (
     <Router>
       <div>
 
+        {console.log('Props for WeatherDisplay:', {
+          name: selectedCity.name,
+          weatherData: weatherData
+        })}
         {console.log('Selected city in Main', selectedCity)}
         {console.log('Weather data in Main', weatherData)}
-
         <Header />
         <h1>Погода</h1>
+
         <Routes>
           <Route
             path="/"
@@ -57,15 +62,21 @@ const Main = () => {
                     />
                     {
                       weatherData.list &&
-                      <WeatherData weatherData={weatherData.list[0]} />
+                      <>
+                        <WeatherData weatherData={weatherData.list[0]} />
+                        {console.log('WeatherData.list[0]:', weatherData.list[0])}
+                      </>
                     }
-                    />
                   </>
                 }
+
               </>
             }
           />
         </Routes>
+
+        <WeatherDisplay />
+
       </div>
     </Router>
   );
