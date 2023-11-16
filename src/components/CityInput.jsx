@@ -1,45 +1,27 @@
 // CityInput.jsx
-import React, {useState} from 'react';
+import React from 'react';
 import JsonFile from '../cities/cities.json';
+import {useNavigate} from "react-router-dom";
 
 const CityInput = ({ onSelectCity }) => {
-  const [city, setCity] = useState('');
+  const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    setCity(e.target.value.toLowerCase());
-  };
-
-  const handleSelectCity = () => {
-    if (city.trim() !== '') {
-      const selectedCity = JsonFile.find((cityData) => {
-        return cityData.name.toLowerCase() === city.toLowerCase();
-      });
-
-      if (selectedCity) {
-        console.log('Selected City:', selectedCity);
-        onSelectCity(selectedCity);
-      } else {
-        alert('Город не найден. Выберите город из списка.');
-      }
-    } else {
-      alert('Выберите город перед нажатием кнопки.');
-    }
+  const handleSelectCity = (selectedCity) => {
+    console.log('Selected City:', selectedCity);
+    onSelectCity(selectedCity);
+    navigate('/weather'); // Перенаправление на страницу погоды
   };
 
   return (
     <div>
-      <select
-        value={city}
-        onChange={handleInputChange}
-      >
-        <option value="" disabled>Выберите город</option>
+      <h2>Выберите город из списка:</h2>
+      <ul>
         {JsonFile.map((cityData) => (
-          <option key={cityData.id} value={cityData.name.toLowerCase()}>
+          <li key={cityData.id} onClick={() => handleSelectCity(cityData)}>
             {cityData.name}
-          </option>
+          </li>
         ))}
-      </select>
-      <button onClick={handleSelectCity}>Выбрать город</button>
+      </ul>
     </div>
   );
 };

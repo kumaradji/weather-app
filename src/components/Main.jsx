@@ -1,19 +1,14 @@
 // Main.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CityInput from './CityInput';
 import Header from './Header';
 import { fetchWeatherData, getCityCoordinates } from './WeatherService';
-import WeatherData from './WeatherData';
 import WeatherDisplay from "./WeatherDisplay";
 
 const Main = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [weatherData, setWeatherData] = useState([]);
-
-  useEffect(() => {
-    console.log('Main Updated', { selectedCity, weatherData });
-  }, [selectedCity, weatherData]);
 
   const handleCitySelect = async (city) => {
     try {
@@ -22,7 +17,7 @@ const Main = () => {
 
       if (cityCoordinates) {
         const { lat, lon } = cityCoordinates;
-        setSelectedCity(city); // Обновить selectedCity сначала
+        setSelectedCity(city);
         const data = await fetchWeatherData(lat, lon);
         setWeatherData(data);
       }
@@ -36,12 +31,6 @@ const Main = () => {
     <Router>
       <div>
 
-        {console.log('Props for WeatherDisplay:', {
-          name: selectedCity.name,
-          weatherData: weatherData
-        })}
-        {console.log('Selected city in Main', selectedCity)}
-        {console.log('Weather data in Main', weatherData)}
         <Header />
         <h1>Погода</h1>
 
@@ -50,32 +39,19 @@ const Main = () => {
             path="/"
             element={<CityInput onSelectCity={handleCitySelect} />}
           />
+
           <Route
             path="/weather"
             element={
-              <>
-                {weatherData &&
-                  <>
-                    <WeatherDisplay
-                      name={selectedCity.name}
-                      weatherData={weatherData}
-                    />
-                    {
-                      weatherData.list &&
-                      <>
-                        <WeatherData weatherData={weatherData.list[0]} />
-                        {console.log('WeatherData.list[0]:', weatherData.list[0])}
-                      </>
-                    }
-                  </>
-                }
-
-              </>
+              <WeatherDisplay
+                key={weatherData.list && weatherData.list[0] && weatherData.list[0].dt}
+                name={selectedCity.name}
+                weatherData={weatherData}
+              />
             }
           />
-        </Routes>
 
-        <WeatherDisplay />
+        </Routes>
 
       </div>
     </Router>
