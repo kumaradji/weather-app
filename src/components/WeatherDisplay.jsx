@@ -21,13 +21,18 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
   const weatherToDisplay = displayType === 'fiveDays' ? getDailyWeather(weatherData.list) : getTodayWeather(weatherData.list);
 
   return (
-    <div className="weather-display">
+    <div className="weather-table">
       <h2>Погода в городе {name}</h2>
 
-      <Button onClick={() => onDisplayTypeChange(displayType === 'fiveDays' ? 'today' : 'fiveDays')} variant={displayType === 'fiveDays' ? 'primary' : 'secondary'}>
+      <Button
+        variant={displayType === 'fiveDays' ? 'primary' : 'secondary'}
+        onClick={() => onDisplayTypeChange(displayType === 'fiveDays' ? 'today' : 'fiveDays')}
+        className="custom-button"
+      >
         {displayType === 'fiveDays' ? 'Показать погоду сегодня' : 'Показать погоду на пять дней'}
       </Button>
-      <Table striped bordered hover>
+
+      <Table striped bordered hover variant="success">
         <thead>
         <tr>
           <th>Дата и время</th>
@@ -51,6 +56,7 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
         ))}
         </tbody>
       </Table>
+
     </div>
   );
 };

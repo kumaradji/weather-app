@@ -28,7 +28,8 @@ body {
 
 .header-title {
     flex-grow: 1;
-    text-align: center;
+    text-align: left;
+    margin-left: 20px;
 }
 
 .city-input {
@@ -42,14 +43,29 @@ body {
 
 .weather-table {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
 .weather-table th,
 .weather-table td {
-    text-align: center;
-    padding: 10px;
+    text-align: left;
+    padding: 15px;
 }
+
+.custom-button {
+    border-radius: 5px;
+    background-color: #3e6a9b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
 
 @media (max-width: 768px) {
     .weather-table th,
