@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CityInput from './CityInput';
 import Header from './Header';
 import { fetchWeatherData, getCityCoordinates } from './WeatherService';
@@ -9,7 +9,7 @@ import '../styles/Main.css';
 const Main = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [weatherData, setWeatherData] = useState([]);
-  const [displayType, setDisplayType] = useState('currentDay'); // 'currentDay' or 'fiveDays'
+  const [displayType, setDisplayType] = useState('currentDay');
 
   const handleCitySelect = async (city) => {
     try {
