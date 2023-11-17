@@ -1,4 +1,3 @@
-// WeatherDisplay.jsx
 import React, { useEffect } from 'react';
 import '../styles/WeatherDisplay.css';
 
@@ -17,17 +16,21 @@ const WeatherDisplay = ({ name, weatherData }) => {
     return <p className="weather-display-error">Данные о погоде отсутствуют</p>;
   }
 
-  const currentWeather = weatherData.list[0];
-  const temperature = currentWeather.main.temp;
-  const description = currentWeather.weather[0].description;
+  // Ограничиваем количество дней, которые мы хотим показать (в данном случае первые 5 дней)
+  const daysToShow = weatherData.list.slice(0, 5);
 
   return (
     <div className="weather-display">
-
       <h2>Погода в городе {name}</h2>
-      <p>Погода на: {currentWeather.dt_txt}</p>
-      <p>Температура: {temperature}°C</p>
-      <p>Описание: {description}</p>
+
+      {daysToShow.map((day) => (
+        <div key={day.dt}>
+          <p>Дата: {day.dt_txt}</p>
+          <p>Температура: {day.main.temp}°C</p>
+          <p>Описание: {day.weather[0].description}</p>
+          <hr />
+        </div>
+      ))}
     </div>
   );
 };
