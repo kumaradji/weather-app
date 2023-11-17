@@ -2,6 +2,7 @@
 import React from 'react';
 import JsonFile from '../cities/cities.json';
 import {useNavigate} from "react-router-dom";
+import "../styles/Main.css";
 
 const CityInput = ({ onSelectCity }) => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const CityInput = ({ onSelectCity }) => {
   };
 
   return (
-    <div>
+    <div className="city-input">
       <h2>Выберите город из списка:</h2>
       <ul>
         {JsonFile.map((cityData) => (

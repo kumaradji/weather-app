@@ -1,12 +1,12 @@
-import React , { Component } from "react";
-import "../styles/Header.css";
+// Header.jsx
+import React from 'react';
 
-class Header extends Component {
-  render() {
-    return (
-      <header>Прогноз погоды</header>
-    );
-  }
-}
+const Header = () => {
+  return (
+    <div className="header">
+      <h1>Погода</h1>
+    </div>
+  );
+};
 
 export default Header;

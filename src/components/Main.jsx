@@ -1,14 +1,15 @@
-// Main.jsx
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CityInput from './CityInput';
 import Header from './Header';
 import { fetchWeatherData, getCityCoordinates } from './WeatherService';
 import WeatherDisplay from "./WeatherDisplay";
+import '../styles/Main.css';
 
 const Main = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [weatherData, setWeatherData] = useState([]);
+  const [displayType, setDisplayType] = useState('currentDay'); // 'currentDay' or 'fiveDays'
 
   const handleCitySelect = async (city) => {
     try {
@@ -26,12 +27,16 @@ const Main = () => {
     }
   };
 
+  const handleDisplayTypeChange = (type) => {
+    setDisplayType(type);
+  };
+
   return (
     <Router>
-      <div>
+      <div className="container">
 
         <Header />
-        <h1>Погода</h1>
+        <h1>Погода на пять дней</h1>
 
         <Routes>
           <Route
@@ -46,11 +51,18 @@ const Main = () => {
                 key={weatherData.list && weatherData.list[0] && weatherData.list[0].dt}
                 name={selectedCity.name}
                 weatherData={weatherData}
+                displayType={displayType}
+                onDisplayTypeChange={handleDisplayTypeChange}
               />
             }
           />
 
         </Routes>
+
+        {/*<div>*/}
+        {/*  <Link to="/weather" onClick={() => handleDisplayTypeChange('currentDay')}>Показать погоду на текущий день</Link>*/}
+        {/*  <Link to="/weather" onClick={() => handleDisplayTypeChange('fiveDays')}>Показать погоду на пять дней</Link>*/}
+        {/*</div>*/}
 
       </div>
     </Router>
