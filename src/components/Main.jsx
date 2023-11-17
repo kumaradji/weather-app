@@ -26,7 +26,6 @@ const Main = () => {
     }
   };
 
-
   return (
     <Router>
       <div>
