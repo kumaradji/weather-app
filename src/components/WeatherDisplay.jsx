@@ -18,14 +18,14 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
     return <p className="weather-display-error">Данные о погоде отсутствуют</p>;
   }
 
-  const weatherToDisplay = displayType === 'currentDay' ? [weatherData.list[0]] : weatherData.list.slice(0, 5);
+  const weatherToDisplay = displayType === 'fiveDays' ? getDailyWeather(weatherData.list) : getTodayWeather(weatherData.list);
 
   return (
     <div className="weather-display">
       <h2>Погода в городе {name}</h2>
 
-      <Button onClick={() => onDisplayTypeChange('fiveDays')} variant={displayType === 'fiveDays' ? 'primary' : 'secondary'}>
-        Показать погоду на пять дней
+      <Button onClick={() => onDisplayTypeChange(displayType === 'fiveDays' ? 'today' : 'fiveDays')} variant={displayType === 'fiveDays' ? 'primary' : 'secondary'}>
+        {displayType === 'fiveDays' ? 'Показать погоду сегодня' : 'Показать погоду на пять дней'}
       </Button>
       <Table striped bordered hover>
         <thead>
@@ -33,6 +33,9 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
           <th>Дата и время</th>
           <th>Температура</th>
           <th>Описание</th>
+          <th>Давление</th>
+          <th>Осадки</th>
+          <th>Влажность</th>
         </tr>
         </thead>
         <tbody>
@@ -41,12 +44,31 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
             <td>{weatherItem.dt_txt}</td>
             <td>{weatherItem.main.temp}&deg;C</td>
             <td>{weatherItem.weather[0].description}</td>
+            <td>{weatherItem.main.pressure} hPa</td>
+            <td>{weatherItem.rain ? `${weatherItem.rain['3h']} mm` : '0 mm'}</td>
+            <td>{weatherItem.main.humidity}%</td>
           </tr>
         ))}
         </tbody>
       </Table>
     </div>
   );
+};
+
+const getDailyWeather = (weatherList) => {
+  const dailyWeather = {};
+  weatherList.forEach((weatherItem) => {
+    const date = weatherItem.dt_txt.split(' ')[0];
+    if (!dailyWeather[date] || weatherItem.dt_txt.split(' ')[1] === '12:00:00') {
+      dailyWeather[date] = weatherItem;
+    }
+  });
+  return Object.values(dailyWeather);
+};
+
+const getTodayWeather = (weatherList) => {
+  const today = new Date().toISOString().split('T')[0];
+  return weatherList.filter((weatherItem) => weatherItem.dt_txt.includes(today));
 };
 
 export default WeatherDisplay;

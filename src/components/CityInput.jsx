@@ -1,8 +1,8 @@
 // CityInput.jsx
 import React from 'react';
 import JsonFile from '../cities/cities.json';
-import {useNavigate} from "react-router-dom";
-import "../styles/Main.css";
+import { useNavigate } from 'react-router-dom';
+import '../styles/Main.css';
 
 const CityInput = ({ onSelectCity }) => {
   const navigate = useNavigate();
@@ -10,19 +10,29 @@ const CityInput = ({ onSelectCity }) => {
   const handleSelectCity = (selectedCity) => {
     console.log('Selected City:', selectedCity);
     onSelectCity(selectedCity);
-    navigate('/weather'); // Перенаправление на страницу погоды
+    navigate('/weather');
   };
 
   return (
     <div className="city-input">
       <h2>Выберите город из списка:</h2>
-      <ul>
+      <table>
+        <thead>
+        <tr>
+          <th>Город</th>
+        </tr>
+        </thead>
+        <tbody>
         {JsonFile.map((cityData) => (
-          <li key={cityData.id} onClick={() => handleSelectCity(cityData)}>
-            {cityData.name}
-          </li>
+          <tr key={cityData.id}>
+            <td onClick={() => handleSelectCity(cityData)}>{cityData.name}</td>
+            <td>
+              <button onClick={() => handleSelectCity(cityData)}>Выбрать</button>
+            </td>
+          </tr>
         ))}
-      </ul>
+        </tbody>
+      </table>
     </div>
   );
 };

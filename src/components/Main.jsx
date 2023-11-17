@@ -36,7 +36,6 @@ const Main = () => {
       <div className="container">
 
         <Header />
-        <h1>Погода на пять дней</h1>
 
         <Routes>
           <Route
@@ -58,12 +57,6 @@ const Main = () => {
           />
 
         </Routes>
-
-        {/*<div>*/}
-        {/*  <Link to="/weather" onClick={() => handleDisplayTypeChange('currentDay')}>Показать погоду на текущий день</Link>*/}
-        {/*  <Link to="/weather" onClick={() => handleDisplayTypeChange('fiveDays')}>Показать погоду на пять дней</Link>*/}
-        {/*</div>*/}
-
       </div>
     </Router>
   );
