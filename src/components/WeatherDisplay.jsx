@@ -29,7 +29,7 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
         onClick={() => onDisplayTypeChange(displayType === 'fiveDays' ? 'today' : 'fiveDays')}
         className="custom-button"
       >
-        {displayType === 'fiveDays' ? 'Показать погоду сегодня' : 'Показать погоду на пять дней'}
+        {displayType === 'fiveDays' ? 'Сейчас' : 'Ближайшие пять дней'}
       </Button>
 
       <Table striped bordered hover variant="success">
