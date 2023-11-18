@@ -110,5 +110,40 @@
     "name": "Krasnodar",
     "lat": "45.03279",
     "lng": "38.97694"
+  },
+  {
+    "id": "17",
+    "country": "RU",
+    "name": "Irkutsk",
+    "lat": "52.28638",
+    "lng": "104.30502"
+  },
+  {
+    "id": "18",
+    "country": "RU",
+    "name": "Tyumen",
+    "lat": "57.15303",
+    "lng": "65.53433"
+  },
+  {
+    "id": "19",
+    "country": "RU",
+    "name": "Kemerovo",
+    "lat": "55.35529",
+    "lng": "86.08796"
+  },
+  {
+    "id": "20",
+    "country": "RU",
+    "name": "Yaroslavl",
+    "lat": "57.62144",
+    "lng": "39.89767"
+  },
+  {
+    "id": "21",
+    "country": "RU",
+    "name": "Vladivostok",
+    "lat": "43.10562",
+    "lng": "131.87353"
   }
 ]

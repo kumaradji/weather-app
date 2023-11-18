@@ -17,18 +17,13 @@ const CityInput = ({ onSelectCity }) => {
     <div className="city-input">
       <h2>Выберите город из списка:</h2>
       <table>
-        <thead>
-        <tr>
-          <th>Город</th>
-        </tr>
-        </thead>
-        <tbody>
+        <tbody className="city-list">
         {JsonFile.map((cityData) => (
           <tr key={cityData.id}>
-            <td onClick={() => handleSelectCity(cityData)}>{cityData.name}</td>
-            <td>
-              <button onClick={() => handleSelectCity(cityData)}>Выбрать</button>
+            <td className="button-cell">
+              <button className="input-button" onClick={() => handleSelectCity(cityData)}>Выбрать</button>
             </td>
+            <td onClick={() => handleSelectCity(cityData)}>{cityData.name}</td>
           </tr>
         ))}
         </tbody>
