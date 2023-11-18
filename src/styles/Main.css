@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ecddce;
+    background-color: #e8e7e0;
     margin: 0;
     padding: 0;
 }
@@ -99,7 +99,7 @@ table th {
 }
 
 table th {
-    background-color: #b7b69a;
+    background-color: #c3c2bd;
 }
 
 .city-list {
@@ -108,15 +108,11 @@ table th {
     gap: 10px;
 }
 
-@media (max-width: 768px) {
-    .weather-table th,
-    .weather-table td {
-        padding: 8px;
-    }
-}
+/* Адаптивные стили */
 
-@media (max-width: 768px) {
-    .city-input {
-        margin-top: 40px;
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 20px;
     }
 }
