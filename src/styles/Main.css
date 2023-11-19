@@ -1,6 +1,9 @@
 /* styles/Main.css */
 
 body {
+    background-image: url('/Users/kumar_air/WebstormProjects/weather-app/img/bg-img.png');
+    background-size: cover;
+    background-position: center;
     font-family: 'Arial', sans-serif;
     background-color: #dfdfe8;
     margin: 0;
@@ -9,12 +12,14 @@ body {
 
 .container {
     max-width: 1200px;
+    display: grid;
     margin: 0 auto;
     padding: 20px;
 }
 
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #72a4dc;
     color: #fff;
@@ -81,7 +86,7 @@ body {
     background-color: #627d3d;
 }
 
-.city-input h2 {
+.city-input h1 {
     font-size: 2rem;
 }
 
@@ -104,7 +109,7 @@ table th {
 
 .city-list {
     display: inline-grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
@@ -112,11 +117,49 @@ table th {
     padding-right: 30px;
 }
 
-/* Адаптивные стили */
-
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .container {
-        width: 100%;
+        max-width: 1000px;
+        display: grid;
+        margin: 0 auto;
         padding: 20px;
     }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .header {
+        font-size: 1.2rem;
+    }
+
+    .city-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .city-input h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 480px;
+    }
+
+    .header {
+        font-size: 1rem;
+    }
+
+    .city-list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
 }
