@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import '../styles/Main.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { citiesDictionary } from '../constants/citiesDictionary';
 
 /**
  * WeatherDisplay component renders weather information for a selected city.
@@ -37,7 +38,7 @@ const WeatherDisplay = ({ name, weatherData, displayType, onDisplayTypeChange })
 
   return (
     <div className="weather-table">
-      <h2>Погода в городе {name}</h2>
+      <h2>Погода в городе {citiesDictionary[name]}</h2>
 
       {/* Button to switch between today and five days display */}
       <Button
