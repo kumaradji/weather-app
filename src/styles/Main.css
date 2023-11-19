@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e8e7e0;
+    background-color: #dfdfe8;
     margin: 0;
     padding: 0;
 }
@@ -16,7 +16,7 @@ body {
 .header {
     display: flex;
     align-items: center;
-    background-color: #3e6a9b;
+    background-color: #72a4dc;
     color: #fff;
     font-size: 1rem;
 }
@@ -55,8 +55,8 @@ body {
 
 .input-button {
     border-radius: 5px;
-    background-color: #efcdcd;
-    color: #210404;
+    background-color: #769548;
+    color: #ffffff;
     padding: 5px 8px;
     font-size: 14px;
     cursor: pointer;
@@ -65,7 +65,7 @@ body {
 
 .custom-button {
     border-radius: 5px;
-    background-color: #3e6a9b;
+    background-color: #3c8be3;
     color: #fff;
     padding: 10px 20px;
     font-size: 16px;
@@ -78,7 +78,7 @@ body {
 }
 
 .input-button:hover {
-    background-color: #d59e9e;
+    background-color: #627d3d;
 }
 
 .city-input h2 {
@@ -93,8 +93,8 @@ table {
 
 table td,
 table th {
-    padding: 0;
-    margin: 10px;
+    padding: 7px;
+    margin: 8px;
     text-align: center;
 }
 
@@ -106,6 +106,10 @@ table th {
     display: inline-grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+}
+
+.city-name {
+    padding-right: 30px;
 }
 
 /* Адаптивные стили */

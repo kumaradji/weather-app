@@ -28,11 +28,11 @@ const CityInput = ({ onSelectCity }) => {
 
   return (
     <div className="city-input">
-      <h2>Выберите город из списка:</h2>
+      <h1>Выберите город из списка:</h1>
       <table>
         <tbody className="city-list">
         {JsonFile.map((cityData) => (
-          <tr key={cityData.id}>
+          <tr className="city-name" key={cityData.id}>
             <td className="button-cell">
               <button className="input-button" onClick={() => handleSelectCity(cityData)}>Выбрать</button>
             </td>
