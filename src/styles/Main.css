@@ -55,8 +55,8 @@ body {
 
 .input-button {
     border-radius: 5px;
-    background-color: #558cca;
-    color: #fff;
+    background-color: #efcdcd;
+    color: #210404;
     padding: 5px 8px;
     font-size: 14px;
     cursor: pointer;
@@ -78,7 +78,7 @@ body {
 }
 
 .input-button:hover {
-    background-color: #154a82;
+    background-color: #d59e9e;
 }
 
 .city-input h2 {

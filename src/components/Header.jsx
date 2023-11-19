@@ -3,6 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "../styles/Main.css";
 
+/**
+ * Header component displays the application header with a logo and title.
+ *
+ * @component
+ * @returns {JSX.Element} - Rendered component.
+ */
 const Header = () => {
   return (
     <div className="header">
