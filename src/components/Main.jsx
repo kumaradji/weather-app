@@ -26,7 +26,7 @@ const Main = () => {
    */
   const handleCitySelect = async (city) => {
     try {
-      const apiKey = process.env.REACT_APP_API_KEY;
+      const apiKey = 'ffd35bef4b2502a86a950620325c3764';
       const cityCoordinates = await getCityCoordinates(city.name, apiKey);
 
       if (cityCoordinates) {

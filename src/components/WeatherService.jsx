@@ -4,7 +4,7 @@
  * API key for accessing OpenWeatherMap API.
  * @type {string}
  */
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = 'ffd35bef4b2502a86a950620325c3764';
 
 /**
  * Base URL for the OpenWeatherMap forecast API.
