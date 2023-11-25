@@ -1,6 +1,6 @@
 // WeatherDisplay.jsx
 import React, { useEffect } from 'react';
-import '../styles/Main.css';
+import '../styles/WeatherDisplay.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { citiesDictionary } from '../constants/citiesDictionary';

@@ -17,106 +17,6 @@ body {
     padding: 20px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #72a4dc;
-    color: #fff;
-    font-size: 1rem;
-}
-
-.logo {
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-.header-title {
-    flex-grow: 1;
-    text-align: left;
-    margin-left: 20px;
-}
-
-.city-input {
-    margin-top: 20px;
-    text-align: -moz-left;
-}
-
-.weather-display {
-    margin-top: 20px;
-}
-
-.weather-table {
-    width: 100%;
-    margin-top: 2rem;
-}
-
-.weather-table th,
-.weather-table td {
-    text-align: left;
-    padding: 15px;
-    border: 1px solid #000;
-}
-
-.input-button {
-    border-radius: 5px;
-    background-color: #769548;
-    color: #ffffff;
-    padding: 5px 8px;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-}
-
-.custom-button {
-    border-radius: 5px;
-    background-color: #3c8be3;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-}
-
-.custom-button:hover {
-    background-color: #0056b3;
-}
-
-.input-button:hover {
-    background-color: #627d3d;
-}
-
-.city-input h1 {
-    font-size: 2rem;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 5px;
-}
-
-table td,
-table th {
-    padding: 7px;
-    margin: 8px;
-    text-align: center;
-}
-
-table th {
-    background-color: #c3c2bd;
-}
-
-.city-list {
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.city-name {
-    padding-right: 30px;
-}
-
 @media (max-width: 1200px) {
     .container {
         max-width: 1000px;
@@ -130,36 +30,10 @@ table th {
     .container {
         max-width: 768px;
     }
-
-    .header {
-        font-size: 1.2rem;
-    }
-
-    .city-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .city-input h1 {
-        font-size: 1.7rem;
-    }
 }
 
 @media (max-width: 768px) {
     .container {
         max-width: 480px;
     }
-
-    .header {
-        font-size: 1rem;
-    }
-
-    .city-list {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-
 }

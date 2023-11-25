@@ -2,7 +2,7 @@
 import React from 'react';
 import JsonFile from '../cities/cities.json';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Main.css';
+import '../styles/CityInput.css';
 import { citiesDictionary } from '../constants/citiesDictionary';
 
 const CityInput = ({ onSelectCity }) => {
