@@ -1,7 +1,7 @@
 /* styles/Main.css */
 
 body {
-    background-image: url('/Users/kumar_air/WebstormProjects/weather-app/img/bg-img.png');
+    background-image: url('../../img/bg-img.png');
     background-size: cover;
     background-position: center;
     font-family: 'Arial', sans-serif;
